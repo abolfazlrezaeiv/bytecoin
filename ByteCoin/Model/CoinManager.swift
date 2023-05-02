@@ -6,14 +6,55 @@
 //  Copyright © 2019 The App Brewery. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol CoinManagerDelegate {
+    func didUpdateCoinData(_ data: ExchangeRate)
+    func didFailWithError(_ error: Error)
+}
 
 struct CoinManager {
+    var delegate : CoinManagerDelegate? = nil
     
-    let baseURL = "https://rest.coinapi.io/v1/exchangerate/BTC"
-    let apiKey = "YOUR_API_KEY_HERE"
+   
+    
+    let baseURL = "https://rest.coinapi.io/v1/exchangerate/BTC/USD"
+    let apiKey = "6291CC65-41B4-4808-BE41-3C773AC64E7D"
     
     let currencyArray = ["AUD", "BRL","CAD","CNY","EUR","GBP","HKD","IDR","ILS","INR","JPY","MXN","NOK","NZD","PLN","RON","RUB","SEK","SGD","USD","ZAR"]
 
     
+    func getCoinPrice(for currency: String) {
+        performRequest()
+        
+    }
+    
+    fileprivate func performRequest() {
+        if let url = URL(string: "\(baseURL)?apikey=\(apiKey)") {
+            let urlSession = URLSession(configuration: .default)
+            let task = urlSession.dataTask(with: url) { data, response, error in
+                if error != nil {
+                    self.delegate?.didFailWithError(error!)
+                }
+                if let safeData = data {
+                    if let exchangeRate =  self.parseJson(safeData) {
+                        self.delegate?.didUpdateCoinData(exchangeRate)
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    func parseJson(_ data: Data) -> ExchangeRate? {
+        let decoder = JSONDecoder()
+        do {
+            let decodedData = try decoder.decode(ExchangeRate.self, from: data)
+            let lastPrice = decodedData
+            return lastPrice
+        } catch {
+            self.delegate?.didFailWithError(error)
+            return nil
+        }
+    }
 }
