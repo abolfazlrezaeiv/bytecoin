@@ -12,7 +12,6 @@ class ViewController: UIViewController  {
     
     @IBOutlet weak var bitcoinLabel: UILabel!
 
-
     @IBOutlet weak var currencyLabel: UILabel!
     
     @IBOutlet weak var currencyPicker: UIPickerView!
@@ -21,10 +20,16 @@ class ViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupDelegates()
+    }
+    
+    func setupDelegates() {
         currencyPicker.dataSource = self
         currencyPicker.delegate = self
         coinManager.delegate = self
+        coinManager.getCoinPrice(for: coinManager.currencyArray[0])
     }
+    
 }
 
 
@@ -53,7 +58,7 @@ extension ViewController : UIPickerViewDataSource , UIPickerViewDelegate {
 extension ViewController : CoinManagerDelegate {
     func didUpdateCoinData(_ data: ExchangeRate) {
         DispatchQueue.main.async {
-            self.bitcoinLabel.text = String(format: "%.2f" ,data.rate )
+            self.bitcoinLabel.text = data.rate.roundWithDecimals
         }
     }
     
