@@ -63,7 +63,7 @@ extension ViewController : CoinManagerDelegate {
     }
     
     func didFailWithError(_ error: Error) {
-        self.bitcoinLabel.text = "There was a problem"
+        self.bitcoinLabel.text = "There is a problem"
     }
     
     
