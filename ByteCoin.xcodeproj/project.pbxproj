@@ -18,6 +18,7 @@
 		ADA8AC122329367300626376 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADA8AC112329367300626376 /* Assets.xcassets */; };
 		ADA8AC152329367300626376 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADA8AC132329367300626376 /* LaunchScreen.storyboard */; };
 		ADA8AC202329398300626376 /* CoinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA8AC1F2329398300626376 /* CoinManager.swift */; };
+		D709CBDD2A07F7F400918302 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D709CBDC2A07F7F400918302 /* .gitignore */; };
 		D799ABE72A0042AC00F8B92F /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D799ABE62A0042AC00F8B92F /* ExchangeRate.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +36,7 @@
 		ADA8AC142329367300626376 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADA8AC162329367300626376 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADA8AC1F2329398300626376 /* CoinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinManager.swift; sourceTree = "<group>"; };
-		D709CBDB2A07F5AC00918302 /* .gitignore.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = .gitignore.md; sourceTree = "<group>"; };
+		D709CBDC2A07F7F400918302 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		D799ABE62A0042AC00F8B92F /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,7 +89,6 @@
 		ADA8ABFC2329367100626376 = {
 			isa = PBXGroup;
 			children = (
-				D709CBDB2A07F5AC00918302 /* .gitignore.md */,
 				ADA8AC072329367100626376 /* ByteCoin */,
 				ADA8AC062329367100626376 /* Products */,
 			);
@@ -114,6 +114,7 @@
 				ADA8AC112329367300626376 /* Assets.xcassets */,
 				ADA8AC132329367300626376 /* LaunchScreen.storyboard */,
 				ADA8AC162329367300626376 /* Info.plist */,
+				D709CBDC2A07F7F400918302 /* .gitignore */,
 			);
 			path = ByteCoin;
 			sourceTree = "<group>";
@@ -201,6 +202,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D709CBDD2A07F7F400918302 /* .gitignore in Resources */,
 				ADA8AC152329367300626376 /* LaunchScreen.storyboard in Resources */,
 				5C237C2A2A03B0A900C543EF /* Configurations.plist in Resources */,
 				ADA8AC122329367300626376 /* Assets.xcassets in Resources */,
